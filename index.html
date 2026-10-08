@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Automate — AI automation for sales and operations</title>
-  <meta name="description" content="AI Automate automates business with AI: sales teams sell more effectively, routine runs on autopilot, and a lean team delivers maximum output.">
-  <meta property="og:title" content="AI Automate — AI automation for sales and operations">
-  <meta property="og:description" content="We help sales teams sell more effectively, remove routine and run a lean team that gets maximum work done.">
+  <title>AI Automate — AI copilot for client-support and sales teams</title>
+  <meta name="description" content="AI Automate builds an AI copilot for client-support and sales teams: every client message triaged, replies drafted from approved answers, risky requests routed to a manager.">
+  <meta property="og:title" content="AI Automate — AI copilot for client-support and sales teams">
+  <meta property="og:description" content="Every client message handled. Every answer approved.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#1a1a1e">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231a1a1e'/%3E%3Cpath d='M9 23 16 8l7 15' fill='none' stroke='%23C9A96E' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='18' r='2.2' fill='%23f0e6c8'/%3E%3C/svg%3E">
@@ -314,6 +314,20 @@
     .case-num { font-family: var(--sans); font-weight: 900; font-size: clamp(36px, 5vw, 64px); line-height: 1; color: var(--gold); }
     .case-cap { margin-top: 12px; font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); line-height: 1.5; }
 
+    .case-list { display: grid; gap: 20px; }
+    .case-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .case-fact { padding: 18px 16px; border: 1px solid var(--gold-border); border-radius: 10px; background: rgba(201,169,110,0.04); }
+    .case-fact strong { display: block; font-family: var(--sans); font-weight: 900; font-size: clamp(22px, 2.6vw, 30px); line-height: 1.1; color: var(--gold); }
+    .case-fact span { display: block; margin-top: 8px; font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); line-height: 1.5; }
+    .notify {
+      font-family: var(--mono); font-size: 12px; line-height: 1.7; color: var(--text);
+      background: rgba(21,21,24,0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 16px 18px;
+    }
+    .notify b { font-weight: 500; color: var(--gold-accent); }
+    .notify .q { margin-top: 8px; color: var(--text-dim); }
+    .notify .btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .notify .btns span { padding: 6px 12px; border: 1px solid var(--gold-border); border-radius: 6px; font-size: 11px; color: var(--gold); }
+
     /* Comparison */
     .table-wrap { border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius); overflow: hidden; }
     table { width: 100%; border-collapse: collapse; font-size: 15px; }
@@ -330,7 +344,7 @@
     td:nth-child(3) { color: var(--text); font-weight: 400; background: rgba(201,169,110,0.02); border-left: 1px solid rgba(201,169,110,0.08); }
 
     /* Process */
-    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: step; position: relative; }
+    .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; counter-reset: step; position: relative; }
     .step { padding: 28px 24px 32px; }
     .step .step-n {
       display: inline-flex; align-items: center; gap: 10px;
@@ -401,6 +415,7 @@
       .console { max-width: 620px; }
       .stack { grid-template-columns: 1fr; gap: 32px; }
       .case { grid-template-columns: 1fr; gap: 28px; }
+      .case-facts { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 768px) {
       .container { padding: 0 16px; }
@@ -449,13 +464,12 @@
         <span class="logo-text">AI <span>Automate</span></span>
       </a>
       <nav class="nav-links" aria-label="Main">
-        <a href="#outcomes">Outcomes</a>
-        <a href="#services">What we automate</a>
-        <a href="#case">Case</a>
-        <a href="#process">How we work</a>
+        <a href="#how">How it works</a>
+        <a href="#inside">Inside</a>
+        <a href="#cases">Cases</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a href="#contact" class="btn btn-primary btn-sm">Book a call</a>
+      <a href="#contact" class="btn btn-primary btn-sm">Book a demo</a>
     </div>
   </header>
 
@@ -465,40 +479,40 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="section-tag anim">// AI_AUTOMATION_FOR_BUSINESS</div>
-          <h1 class="anim d1">Automate the routine.<br><span class="gold-text">Scale the sales.</span></h1>
-          <p class="hero-sub anim d2">AI Automate builds AI systems for sales teams and operations. Your managers sell more effectively, repetitive work runs on autopilot, and a lean team gets done what used to take a whole department.</p>
+          <div class="section-tag anim">// AI_COPILOT_FOR_CLIENT_TEAMS</div>
+          <h1 class="anim d1">Every message handled.<br><span class="gold-text">Every answer approved.</span></h1>
+          <p class="hero-sub anim d2">AI Automate builds an AI copilot for client-support and sales teams. It reads every incoming message in Telegram, works out what the client needs, drafts a reply from your approved answers and flags risky requests. Your manager approves and sends.</p>
           <ul class="hero-points anim d3">
-            <li>Sales teams close more with less manual work</li>
-            <li>Routine tasks handled by AI, not by people</li>
-            <li>Minimum headcount, maximum output</li>
+            <li>Every incoming message triaged, nothing lost</li>
+            <li>Replies drafted only from approved answers</li>
+            <li>Legal and financial questions always go to a human</li>
           </ul>
           <div class="hero-ctas anim d4">
-            <a href="#contact" class="btn btn-primary">Book a strategy call <span class="arrow">→</span></a>
-            <a href="#services" class="btn btn-outline">What we automate</a>
+            <a href="#contact" class="btn btn-primary">Book a demo <span class="arrow">→</span></a>
+            <a href="#how" class="btn btn-outline">How it works</a>
           </div>
-          <a href="#case" class="proof anim d5"><span><strong>+32%</strong>lead processing speed</span><span><strong>+4%</strong>deals per month</span></a>
+          <a href="#cases" class="proof anim d5"><span><strong>+32%</strong>lead processing speed</span><span><strong>+4%</strong>deals per month</span></a>
         </div>
 
         <div class="anim d2">
-          <div class="console" role="img" aria-label="Example of an AI sales agent handling a lead end to end">
+          <div class="console" role="img" aria-label="Example of the copilot handling one client message">
             <div class="console-bar">
               <div class="dots"><i></i><i></i><i></i></div>
-              <span>ai-automate / sales-agent</span>
+              <span>ai-automate / support-copilot</span>
               <span class="live">Live</span>
             </div>
             <div class="console-body" id="console">
-              <div class="log"><time>09:02:14</time><b>NEW LEAD</b><span>Website form <em>· “Need a quote for our team”</em></span></div>
-              <div class="log"><time>09:02:15</time><b>QUALIFIED</b><span>Budget ✓ Timeline ✓ Decision maker ✓</span></div>
-              <div class="log"><time>09:02:16</time><b>CRM</b><span>Deal created <em>· owner assigned</em></span></div>
-              <div class="log"><time>09:02:18</time><b>REPLY SENT</b><span>Personal answer <em>+ two call slots</em></span></div>
-              <div class="log"><time>11:40:03</time><b>CALL ENDED</b><span>Summary &amp; next steps logged <em>to CRM</em></span></div>
-              <div class="log"><time>11:40:05</time><b>FOLLOW-UP</b><span>Scheduled <em>· manager reminded</em></span></div>
+              <div class="log"><time>10:14:02</time><b>MESSAGE</b><span>Client <em>· “When do I get the invoice for the next payment?”</em></span></div>
+              <div class="log"><time>10:14:03</time><b>TOPIC</b><span>Payments <em>→ invoice schedule</em></span></div>
+              <div class="log"><time>10:14:03</time><b>RED ZONE</b><span>None <em>· approved answer exists</em></span></div>
+              <div class="log"><time>10:14:04</time><b>LOOKUP</b><span>Payment status found <em>in client record</em></span></div>
+              <div class="log"><time>10:14:05</time><b>CARD</b><span>Draft reply sent <em>to managers’ group</em></span></div>
+              <div class="log"><time>10:15:40</time><b>APPROVED</b><span>Manager sent the reply <em>· logged</em></span></div>
             </div>
             <div class="console-foot">
-              <div><small>Response</small><strong>Instant, 24/7</strong></div>
-              <div><small>CRM</small><strong>Always up to date</strong></div>
-              <div><small>Manager</small><strong>Focused on selling</strong></div>
+              <div><small>Triage</small><strong>Every message</strong></div>
+              <div><small>Source</small><strong>Approved answers</strong></div>
+              <div><small>Final say</small><strong>Your manager</strong></div>
             </div>
           </div>
         </div>
@@ -510,196 +524,163 @@
       <div class="container">
         <div class="section-head">
           <div class="section-tag anim">// THE_PROBLEM</div>
-          <h2 class="anim d1">Your team is busy.<br>Not productive.</h2>
+          <h2 class="anim d1">Client chats don’t scale with headcount</h2>
           <div class="section-divider anim d2"></div>
-          <p class="anim d2">Most of a sales team’s day goes to work that brings no revenue. The usual fix is hiring more people — and payroll starts growing faster than sales.</p>
+          <p class="anim d2">Support and sales teams spend their day in messengers answering the same questions, looking for messages they missed and checking documents by hand. Hiring more people only makes the inbox bigger.</p>
         </div>
         <div class="grid-4">
           <div class="card card-neg problem-card anim">
-            <div class="num">01 / ADMIN</div>
-            <h3>Managers fill in CRM instead of selling</h3>
-            <p class="dim">Notes, statuses, reports and copy-paste between tools eat the hours meant for clients.</p>
+            <div class="num">01 / REPEATS</div>
+            <h3>The same questions every day</h3>
+            <p class="dim">Payments, documents, deadlines — typed out again and again by different people.</p>
           </div>
           <div class="card card-neg problem-card anim d1">
-            <div class="num">02 / SPEED</div>
-            <h3>Leads go cold</h3>
-            <p class="dim">Replies come late, follow-ups are forgotten, and the deal goes to the competitor who answered first.</p>
+            <div class="num">02 / MISSED</div>
+            <h3>Messages get lost</h3>
+            <p class="dim">Dozens of chats, and nobody can see which ones still need a reply.</p>
           </div>
           <div class="card card-neg problem-card anim d2">
-            <div class="num">03 / COST</div>
-            <h3>Every new task means a new hire</h3>
-            <p class="dim">Growth is limited by headcount, and every hire brings onboarding, management and payroll.</p>
+            <div class="num">03 / RISK</div>
+            <h3>One wrong answer is expensive</h3>
+            <p class="dim">Legal and financial questions get answered from memory instead of from approved wording.</p>
           </div>
           <div class="card card-neg problem-card anim d3">
-            <div class="num">04 / CONTROL</div>
-            <h3>No visibility into calls and chats</h3>
-            <p class="dim">Owners spot-check a few conversations and miss where deals are really lost.</p>
+            <div class="num">04 / KNOWLEDGE</div>
+            <h3>Answers depend on who replies</h3>
+            <p class="dim">New managers ask colleagues, and the same question gets different answers.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- OUTCOMES -->
-    <section id="outcomes">
+    <!-- HOW IT WORKS -->
+    <section id="how">
       <div class="container">
         <div class="section-head">
-          <div class="section-tag anim">// WHAT_YOU_GET</div>
-          <h2 class="anim d1">Three outcomes we build for</h2>
+          <div class="section-tag anim">// HOW_IT_WORKS</div>
+          <h2 class="anim d1">From incoming message<br>to approved reply</h2>
           <div class="section-divider anim d2"></div>
-          <p class="anim d2">We don’t sell AI for the sake of AI. Every automation we ship is tied to one of these results.</p>
+          <p class="anim d2">The copilot works inside the chats your team already uses. Clients talk to people, the copilot prepares everything around the reply.</p>
         </div>
-        <div class="grid-3">
-          <div class="card card-gold pillar anim">
-            <div class="idx">01</div>
-            <h3>Sales teams sell more effectively</h3>
-            <p class="dim">AI takes over everything around the deal, so managers spend their time on conversations that close.</p>
-            <ul>
-              <li>Instant lead qualification and first reply</li>
-              <li>Personalised follow-ups that never slip</li>
-              <li>Call analysis and coaching for every manager</li>
-            </ul>
+        <div class="steps">
+          <div class="card step anim">
+            <div class="step-n">Step 01</div>
+            <h3>Reads</h3>
+            <p class="dim">Every incoming message with the conversation around it: text, documents, photos. Voice notes are transcribed first.</p>
           </div>
-          <div class="card card-gold pillar anim d1">
-            <div class="idx">02</div>
-            <h3>Routine disappears</h3>
-            <p class="dim">Repetitive work across sales and back office runs automatically, in the tools you already use.</p>
-            <ul>
-              <li>CRM updated after every call and chat</li>
-              <li>Reports, documents and proposals generated</li>
-              <li>Data synced between systems without copy-paste</li>
-            </ul>
+          <div class="card step anim d1">
+            <div class="step-n">Step 02</div>
+            <h3>Understands</h3>
+            <p class="dim">Works out the topic, whether a reply is needed and what exactly the client is asking for.</p>
           </div>
-          <div class="card card-gold pillar anim d2">
-            <div class="idx">03</div>
-            <h3>Lean team, maximum output</h3>
-            <p class="dim">Keep headcount to a minimum and still take on more work — AI agents scale, payroll doesn’t have to.</p>
-            <ul>
-              <li>New workflows instead of new hires</li>
-              <li>Knowledge in an AI base, not in people’s heads</li>
-              <li>Faster onboarding for the people you do hire</li>
-            </ul>
+          <div class="card step anim d2">
+            <div class="step-n">Step 03</div>
+            <h3>Checks</h3>
+            <p class="dim">Red-zone requests — legal, financial, disputes — go straight to a manager with the reason attached.</p>
+          </div>
+          <div class="card step anim d3">
+            <div class="step-n">Step 04</div>
+            <h3>Drafts</h3>
+            <p class="dim">A reply built from your approved answers and live client data, delivered as a card to the managers’ group.</p>
+          </div>
+          <div class="card card-gold step anim d4">
+            <div class="step-n">Step 05</div>
+            <h3>Manager approves</h3>
+            <p class="dim">Send as is, edit or reject. Every decision is logged and used to measure and improve the copilot.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services" class="bg-alt">
+    <!-- INSIDE -->
+    <section id="inside" class="bg-alt">
       <div class="container">
         <div class="section-head">
-          <div class="section-tag anim">// WHAT_WE_AUTOMATE</div>
-          <h2 class="anim d1">AI agents for sales and operations</h2>
+          <div class="section-tag anim">// INSIDE_THE_COPILOT</div>
+          <h2 class="anim d1">What the AI does on every message</h2>
           <div class="section-divider anim d2"></div>
-          <p class="anim d2">Each system is built around your process and connected to your CRM, messengers, email and documents.</p>
+          <p class="anim d2">Before your manager sees a message, the copilot has already done the groundwork.</p>
         </div>
         <div class="grid-3">
           <div class="card service anim">
-            <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></div>
-            <h3>AI sales assistant</h3>
-            <p class="dim">Answers inbound leads in seconds across website, messengers and email, qualifies them and books calls for your managers.</p>
-            <div class="tag">Sales · 24/7</div>
+            <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M6 12h12M10 18h4"/></svg></div>
+            <h3>Message triage</h3>
+            <p class="dim">Each message gets a topic, a “needs reply” flag, a risk category and the quote that justifies the decision.</p>
+            <div class="tag">Structured output</div>
+          </div>
+          <div class="card service anim d1">
+            <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M9 8h7M9 12h5"/></svg></div>
+            <h3>Approved answers only</h3>
+            <p class="dim">Replies come from a knowledge base your team signs off. Anything the base doesn’t cover goes to a manager.</p>
+            <div class="tag">Knowledge base</div>
+          </div>
+          <div class="card service anim d2">
+            <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="M12 9v4M12 16h.01"/></svg></div>
+            <h3>Red-zone guard</h3>
+            <p class="dim">Two layers — fixed rules and AI review — keep legal and financial questions away from automatic drafts.</p>
+            <div class="tag">Safety</div>
+          </div>
+          <div class="card service anim">
+            <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></div>
+            <h3>Documents &amp; photos</h3>
+            <p class="dim">Receipts, contracts and screenshots are read and summarised right in the manager’s card.</p>
+            <div class="tag">Vision · PDF</div>
           </div>
           <div class="card service anim d1">
             <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <h3>CRM autopilot</h3>
-            <p class="dim">Call and chat summaries, deal stages, tasks and next steps written to the CRM automatically — no manual entry.</p>
-            <div class="tag">Sales · Data</div>
+            <h3>Live client data</h3>
+            <p class="dim">The copilot looks up payment status and client records in your systems before it drafts a reply.</p>
+            <div class="tag">Tool use</div>
           </div>
           <div class="card service anim d2">
             <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l3-8 4 16 3-8h5"/></svg></div>
-            <h3>Call &amp; chat analytics</h3>
-            <p class="dim">Every conversation checked against your script: objections, missed steps and coaching notes for each manager.</p>
-            <div class="tag">Sales · Quality</div>
-          </div>
-          <div class="card service anim">
-            <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.2L4 17.2z"/><path d="m22 2-7 7"/><path d="M15 2h7v7"/></svg></div>
-            <h3>Follow-up engine</h3>
-            <p class="dim">Personalised follow-up sequences and reactivation of the cold base, written from the context of each deal.</p>
-            <div class="tag">Sales · Retention</div>
-          </div>
-          <div class="card service anim d1">
-            <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></div>
-            <h3>Back-office automation</h3>
-            <p class="dim">Documents, invoices, proposals, reports and data sync between tools — handled by agents, checked by people where it matters.</p>
-            <div class="tag">Operations</div>
-          </div>
-          <div class="card service anim d2">
-            <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M9 8h7M9 12h5"/></svg></div>
-            <h3>AI knowledge base</h3>
-            <p class="dim">An internal assistant trained on your scripts, products and policies. New hires get answers instantly instead of asking colleagues.</p>
-            <div class="tag">Team · Onboarding</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CASE -->
-    <section id="case">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-tag anim">// CASE_STUDY</div>
-          <h2 class="anim d1">Results from a real project</h2>
-          <div class="section-divider anim d2"></div>
-        </div>
-        <div class="card card-gold case anim d2">
-          <div class="case-info">
-            <div class="case-label">Case 01 · Sales</div>
-            <h3>Automated lead handoff to the sales team</h3>
-            <p class="dim">We automated how incoming leads are passed to the client’s sales department.</p>
-          </div>
-          <div class="case-stats">
-            <div class="case-stat">
-              <div class="case-num">+32%</div>
-              <div class="case-cap">Lead processing speed</div>
-            </div>
-            <div class="case-stat">
-              <div class="case-num">+4%</div>
-              <div class="case-cap">More deals per month</div>
-            </div>
+            <h3>Measured on real chats</h3>
+            <p class="dim">Every approve, edit and reject goes into a test set, and each new version is checked against it before release.</p>
+            <div class="tag">Evaluation</div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- COMPARISON -->
-    <section class="bg-alt">
+    <section>
       <div class="container">
         <div class="section-head">
-          <div class="section-tag anim">// HIRE_VS_AUTOMATE</div>
-          <h2 class="anim d1">Another hire or an AI system?</h2>
+          <div class="section-tag anim">// INBOX_VS_COPILOT</div>
+          <h2 class="anim d1">A manual inbox or a copilot?</h2>
           <div class="section-divider anim d2"></div>
-          <p class="anim d2">When the workload grows, you have two options. Here is how they compare.</p>
+          <p class="anim d2">Same team, same chats. Here is what changes.</p>
         </div>
         <div class="table-wrap anim d2">
           <table>
             <thead>
-              <tr><th>Task</th><th>Hiring more people</th><th>AI Automate</th></tr>
+              <tr><th>Task</th><th>Manual inbox</th><th>AI Automate copilot</th></tr>
             </thead>
             <tbody>
               <tr>
-                <td>First reply to a lead</td>
-                <td data-label="Hiring more people">Depends on working hours and who is free</td>
-                <td data-label="AI Automate">Instant, around the clock</td>
+                <td>Finding messages that need a reply</td>
+                <td data-label="Manual inbox">Scrolling through chats</td>
+                <td data-label="AI Automate copilot">Every message triaged, nothing lost</td>
               </tr>
               <tr>
-                <td>CRM hygiene</td>
-                <td data-label="Hiring more people">Manual, often skipped</td>
-                <td data-label="AI Automate">Updated automatically after every call and chat</td>
+                <td>Standard questions</td>
+                <td data-label="Manual inbox">Typed out again every time</td>
+                <td data-label="AI Automate copilot">Draft from an approved answer, ready to send</td>
               </tr>
               <tr>
-                <td>Quality control</td>
-                <td data-label="Hiring more people">Spot checks of a few conversations</td>
-                <td data-label="AI Automate">Every conversation analysed</td>
+                <td>Risky questions</td>
+                <td data-label="Manual inbox">Answered from memory</td>
+                <td data-label="AI Automate copilot">Always routed to a manager, with the reason</td>
               </tr>
               <tr>
-                <td>Scaling the workload</td>
-                <td data-label="Hiring more people">More headcount, payroll and management</td>
-                <td data-label="AI Automate">A new workflow, not a new salary</td>
+                <td>Documents and receipts</td>
+                <td data-label="Manual inbox">Opened and checked by hand</td>
+                <td data-label="AI Automate copilot">Read and summarised in the card</td>
               </tr>
               <tr>
-                <td>Company knowledge</td>
-                <td data-label="Hiring more people">Lives in people’s heads, leaves with them</td>
-                <td data-label="AI Automate">Stored in a shared AI knowledge base</td>
+                <td>New managers</td>
+                <td data-label="Manual inbox">Ask colleagues, answers differ</td>
+                <td data-label="AI Automate copilot">Same approved answers for everyone</td>
               </tr>
             </tbody>
           </table>
@@ -707,70 +688,105 @@
       </div>
     </section>
 
-    <!-- PROCESS -->
-    <section id="process">
+    <!-- CASES -->
+    <section id="cases" class="bg-alt">
       <div class="container">
         <div class="section-head">
-          <div class="section-tag anim">// HOW_WE_WORK</div>
-          <h2 class="anim d1">From audit to a working system</h2>
+          <div class="section-tag anim">// CASES</div>
+          <h2 class="anim d1">What we have built</h2>
           <div class="section-divider anim d2"></div>
-          <p class="anim d2">We start with your process, not with the technology.</p>
         </div>
-        <div class="steps">
-          <div class="card step anim">
-            <div class="step-n">Step 01</div>
-            <h3>Audit</h3>
-            <p class="dim">We map how your sales and operations work today and find where time and money leak.</p>
+        <div class="case-list">
+          <div class="card card-gold case anim">
+            <div class="case-info">
+              <div class="case-label">Pilot · Client support</div>
+              <h3>Client-support copilot for a real-estate developer</h3>
+              <p class="dim">The first deployment of our copilot: it prepares replies for the developer’s client-support team in Telegram. Managers approve every reply in a shared group.</p>
+            </div>
+            <div class="case-facts">
+              <div class="case-fact"><strong>25</strong><span>knowledge-base topics</span></div>
+              <div class="case-fact"><strong>486</strong><span>automated tests</span></div>
+              <div class="case-fact"><strong>100%</strong><span>replies sent by a manager</span></div>
+            </div>
           </div>
-          <div class="card step anim d1">
-            <div class="step-n">Step 02</div>
-            <h3>Blueprint</h3>
-            <p class="dim">A prioritised automation plan: what to automate first, with what tools, and what it changes for the team.</p>
+          <div class="card card-gold case anim d1">
+            <div class="case-info">
+              <div class="case-label">Case · Sales</div>
+              <h3>Automated lead handoff to the sales team</h3>
+              <p class="dim">We automated how incoming leads are passed to the client’s sales department.</p>
+            </div>
+            <div class="case-stats">
+              <div class="case-stat">
+                <div class="case-num">+32%</div>
+                <div class="case-cap">Lead processing speed</div>
+              </div>
+              <div class="case-stat">
+                <div class="case-num">+4%</div>
+                <div class="case-cap">More deals per month</div>
+              </div>
+            </div>
           </div>
-          <div class="card step anim d2">
-            <div class="step-n">Step 03</div>
-            <h3>Build &amp; integrate</h3>
-            <p class="dim">We build AI agents and connect them to your CRM, messengers, email and documents.</p>
-          </div>
-          <div class="card step anim d3">
-            <div class="step-n">Step 04</div>
-            <h3>Launch &amp; scale</h3>
-            <p class="dim">Team onboarding, monitoring and iteration — then the next process on the list.</p>
+          <div class="card card-gold case anim d2">
+            <div class="case-info">
+              <div class="case-label">Case · Lead generation · Built with Claude Code</div>
+              <h3>Lead-finder bot for real-estate managers</h3>
+              <p class="dim">Watches real-estate Telegram groups and sends managers the people who want to buy or rent — in Russian and Ukrainian, with city and budget picked out, and offers and duplicates filtered away.</p>
+            </div>
+            <div class="notify" aria-label="Example notification">
+              <div><b>🔔 RENT</b> · Kyiv rentals, no agents</div>
+              <div>🏷 1-bedroom · budget ~18,000 UAH</div>
+              <div class="q">“Looking for a 1-bedroom in Obolon, up to 18k, no agents…”</div>
+              <div class="btns"><span>Open message</span><span>Write to author</span></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- STACK -->
-    <section class="bg-alt">
+    <section>
       <div class="container stack">
         <div>
           <div class="section-tag anim">// STACK</div>
-          <h2 class="anim d1">Frontier AI, plugged into your tools</h2>
+          <h2 class="anim d1">Frontier AI, plugged into your chats</h2>
           <div class="section-divider anim d2"></div>
-          <p class="anim d2" style="color: var(--text-dim);">We build on leading large language models, with Claude by Anthropic at the core of our agents, and connect them to the systems your team already works in. No migration, no new software to learn.</p>
+          <p class="anim d2" style="color: var(--text-dim);">We build on leading large language models, with Claude by Anthropic at the core of our agents. In the client-support copilot, Claude handles message triage, answer selection, red-zone review and reading client documents. Everything connects to the systems your team already works in, and every solution we ship is designed and built with Claude Code.</p>
         </div>
         <div class="anim d2">
           <div class="chip-group">
-            <div class="label">AI models</div>
+            <div class="label">AI</div>
             <div class="chips">
               <span class="chip hl">Claude</span>
-              <span class="chip">LLM agents</span>
+              <span class="chip">Structured outputs</span>
+              <span class="chip">Tool use</span>
+              <span class="chip">Vision &amp; PDF</span>
               <span class="chip">Speech-to-text</span>
-              <span class="chip">RAG knowledge bases</span>
             </div>
           </div>
           <div class="chip-group">
             <div class="label">Where it runs</div>
             <div class="chips">
-              <span class="chip">CRM</span>
               <span class="chip">Telegram</span>
-              <span class="chip">WhatsApp</span>
+              <span class="chip">CRM</span>
+              <span class="chip">Excel &amp; Google Sheets</span>
               <span class="chip">Email</span>
-              <span class="chip">Telephony</span>
-              <span class="chip">Google Workspace</span>
-              <span class="chip">Slack</span>
-              <span class="chip">Notion</span>
+              <span class="chip">Your databases</span>
+            </div>
+          </div>
+          <div class="chip-group">
+            <div class="label">How we build</div>
+            <div class="chips">
+              <span class="chip hl">Claude Code</span>
+            </div>
+          </div>
+          <div class="chip-group">
+            <div class="label">We also build</div>
+            <div class="chips">
+              <span class="chip">Lead-finder bots</span>
+              <span class="chip">Lead handoff</span>
+              <span class="chip">Payment reconciliation</span>
+              <span class="chip">Member portals for online products</span>
+              <span class="chip">Sales-funnel bots</span>
             </div>
           </div>
         </div>
@@ -778,7 +794,7 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq">
+    <section id="faq" class="bg-alt">
       <div class="container">
         <div class="section-head center">
           <div class="section-tag anim">// FAQ</div>
@@ -787,43 +803,43 @@
         </div>
         <div class="faq">
           <div class="faq-item anim">
-            <button class="faq-q-wrap" aria-expanded="false"><span class="faq-q-text">Who is AI Automate for?</span><span class="faq-icon"></span></button>
-            <div class="faq-answer">Companies with a sales team and repeatable processes: inbound leads, calls, chats, CRM, documents. If your people spend hours on work that follows the same pattern every day, that work can be automated.</div>
+            <button class="faq-q-wrap" aria-expanded="false"><span class="faq-q-text">Who is the copilot for?</span><span class="faq-icon"></span></button>
+            <div class="faq-answer">Client-support and sales teams that talk to clients in messengers and answer the same kinds of questions every day: payments, documents, deadlines, order status.</div>
           </div>
           <div class="faq-item anim d1">
-            <button class="faq-q-wrap" aria-expanded="false"><span class="faq-q-text">Will AI replace our sales managers?</span><span class="faq-icon"></span></button>
-            <div class="faq-answer">AI takes the routine around the deal — replies, data entry, follow-ups, reports. Your managers keep the conversations that close. As you grow, you add workflows instead of adding headcount.</div>
+            <button class="faq-q-wrap" aria-expanded="false"><span class="faq-q-text">Does it reply to clients on its own?</span><span class="faq-icon"></span></button>
+            <div class="faq-answer">No. The copilot prepares the reply and a manager decides: send, edit or reject. Legal and financial questions always go to a person.</div>
           </div>
           <div class="faq-item anim d2">
-            <button class="faq-q-wrap" aria-expanded="false"><span class="faq-q-text">Do we need to change our CRM or tools?</span><span class="faq-icon"></span></button>
-            <div class="faq-answer">No. We build on top of the systems you already use and connect the AI agents to them, so the team keeps working where it works today.</div>
+            <button class="faq-q-wrap" aria-expanded="false"><span class="faq-q-text">Where do the answers come from?</span><span class="faq-icon"></span></button>
+            <div class="faq-answer">From a knowledge base we build with your team from your scripts, policies and real conversations. Your team approves every answer before the copilot can use it.</div>
           </div>
           <div class="faq-item anim d3">
             <button class="faq-q-wrap" aria-expanded="false"><span class="faq-q-text">Which AI models do you use?</span><span class="faq-icon"></span></button>
-            <div class="faq-answer">Leading large language models, with Claude by Anthropic at the core. We choose the model per task based on quality, speed and cost.</div>
+            <div class="faq-answer">Leading large language models, with Claude by Anthropic at the core. Voice notes are transcribed by a separate speech-to-text model before Claude reads them.</div>
           </div>
           <div class="faq-item anim d4">
-            <button class="faq-q-wrap" aria-expanded="false"><span class="faq-q-text">What about our data?</span><span class="faq-icon"></span></button>
-            <div class="faq-answer">Each agent gets access only to what its workflow needs, and your data stays in your systems. We agree on access rules before the build starts.</div>
+            <button class="faq-q-wrap" aria-expanded="false"><span class="faq-q-text">What about our clients’ data?</span><span class="faq-icon"></span></button>
+            <div class="faq-answer">The copilot gets access only to what it needs, and your data stays in your systems. We agree on access rules before the pilot starts.</div>
           </div>
           <div class="faq-item anim d5">
             <button class="faq-q-wrap" aria-expanded="false"><span class="faq-q-text">How do we start?</span><span class="faq-icon"></span></button>
-            <div class="faq-answer">Book a call. We’ll walk through your sales and operations processes and show where AI saves your team the most time.</div>
+            <div class="faq-answer">Book a demo. We look at your incoming messages, build the first set of approved answers with you and launch a pilot in your managers’ group.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
     <!--email_off-->
+    <!-- CTA -->
     <section id="contact" class="cta">
       <div class="container">
         <div class="section-tag anim">// NEXT_STEP</div>
-        <h2 class="anim d1">Find out what AI can take<br>off your team’s plate</h2>
+        <h2 class="anim d1">See the copilot<br>on your own messages</h2>
         <div class="section-divider anim d2" style="margin-left:auto;margin-right:auto;"></div>
-        <p class="anim d2">Book a strategy call. We’ll map your sales and operations processes and show which tasks to automate first.</p>
+        <p class="anim d2">Book a demo. We’ll walk through your team’s incoming messages and show what the copilot would draft for them.</p>
         <div class="hero-ctas anim d3">
-          <a href="mailto:hello@ai-automate.pp.ua?subject=AI%20Automate%20%E2%80%94%20strategy%20call" class="btn btn-primary" id="contact-btn">Book a strategy call <span class="arrow">→</span></a>
+          <a href="mailto:hello@ai-automate.pp.ua?subject=AI%20Automate%20%E2%80%94%20demo" class="btn btn-primary" id="contact-btn">Book a demo <span class="arrow">→</span></a>
         </div>
         <div class="cta-note anim d4"><a href="mailto:hello@ai-automate.pp.ua">hello@ai-automate.pp.ua</a></div>
       </div>
